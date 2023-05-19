@@ -6,8 +6,6 @@ typedef struct {
     float imag;
 } complex;
 
-void teste_todos();
-
 void transposta(complex** a, complex** result, int l, int c) {
     int i, j;
 
@@ -91,7 +89,7 @@ void produto_matricial(complex** a, complex** b, complex** result, int l, int c,
     }
 }
 
-int main() {
+void dois_exemplos(void){
     int l, c, m, i, j;
     l=3;
     c=3;
@@ -479,8 +477,6 @@ int main() {
         printf("\n");
     }
 
-    teste_todos();
-
     printf("\n");
 
     for (i = 0; i < l; i++) {
@@ -506,13 +502,14 @@ int main() {
     free(transposta_a);
     free(hermitiana_a);
     free(produto_matricial_a_b);
-    return 0;
 }
-void teste_todos(){
+
+void teste_todos(void) {
     int l, c, m, i, j;
     l=3;
     c=3;
     m=3;
+
     complex** a = (complex**) malloc(l * sizeof(complex*));
     complex** b = (complex**) malloc(l * sizeof(complex*));
     complex** b2 = (complex**) malloc(c * sizeof(complex*));
@@ -580,6 +577,7 @@ void teste_todos(){
     subtracao(a, b, subtracao_a_b, l, c);
     produto_escalar(vetor_a, vetor_b, &produto_escalar_a_b, l);
     produto_matricial(a, b, produto_matricial_a_b, l, c, m);
+    
 
     printf("\n");
 
@@ -602,6 +600,14 @@ void teste_todos(){
     }
 
     printf("\n");
+
+    printf("=====Equipe=====\n");
+    printf("Filipe Correa da Silva\n");
+    printf("Paulo Vinicius de Freitas Rodrigues\n");
+    printf("Kelton de Jesus Freitas Cantao\n");
+
+    printf("\n");
+
     printf("======Teste da operacao Transposta======\n");
     printf("Operando: A=\n");
     for (i = 0; i < l; i++) {
@@ -683,7 +689,7 @@ void teste_todos(){
     
     printf("======Teste da operacao Subtracao======\n");
     printf("Operando: A=\n");
-        for (i = 0; i < l; i++) {
+    for (i = 0; i < l; i++) {
         for (j = 0; j < c; j++) {
             printf("%+.2f  %+.2fi\t", a[i][j].real, a[i][j].imag);
         }
@@ -748,9 +754,30 @@ void teste_todos(){
         }
         printf("\n");
     }
+
+    printf("\n");
+
+    for (i = 0; i < l; i++) {
+        free(a[i]);
+        free(b[i]);
+        free(soma_a_b[i]);
+        free(subtracao_a_b[i]);
+        free(produto_matricial_a_b[i]);
+    }
+    for (i = 0; i < c; i++) {
+        free(b2[i]);
+        free(transposta_a[i]);
+        free(hermitiana_a[i]);
+    }
+    free(a);
+    free(b);
+    free(b2);
+    free(soma_a_b);
+    free(subtracao_a_b);
+    free(vetor_a);
+    free(vetor_b);
+    free(conjugada_a);
+    free(transposta_a);
+    free(hermitiana_a);
+    free(produto_matricial_a_b);
 }
-
-
-
-
-

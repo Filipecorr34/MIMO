@@ -1,8 +1,8 @@
 #cria os arquivos .o:
-	gcc -c main.c -o main.o
-	gcc -c matrizes.c -o matrizes.o
+#gcc -c main.c -o main.o
+#gcc -c matrizes.c -o matrizes.o
 #executa:
-	./matrizes
+#./matrizes
 
 all: matrizes
 

@@ -598,7 +598,7 @@ void teste_todos(void) {
         }
         printf("\n");
     }
-
+    
     printf("\n");
 
     printf("=====Equipe=====\n");
@@ -781,3 +781,7 @@ void teste_todos(void) {
     free(hermitiana_a);
     free(produto_matricial_a_b);
 }
+//int main(void) {
+//    dois_exemplos();
+//    return 0;
+//}
